@@ -43,7 +43,7 @@ const Header = () => {
         <Container>
           <Toolbar>
             <Typography className={classes.title} onClick={() => navigate("/")}>
-              Crypto App
+              CRY MONEY <span style={{color:'#fff'}}>by dothecode.in</span>
             </Typography>
             <Select
               className="sm"

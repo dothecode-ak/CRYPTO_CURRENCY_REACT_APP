@@ -1,6 +1,7 @@
 import React from "react";
 import { data_img_URL } from "../../data/data";
 import { Container, makeStyles,Typography } from "@material-ui/core";
+import Carousel from "./Carousel";
 const [img] = data_img_URL;
 const useStyles = makeStyles(() => ({
   banner: {
@@ -44,6 +45,7 @@ function Banner() {
               Get all the data from crypto currency app!
             </Typography>
           </div>
+          <Carousel/>
         </Container>
       </div>
     </>

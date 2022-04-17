@@ -2,14 +2,14 @@ import React, { createContext, useContext,useEffect, useState } from "react";
 const Crpto = createContext();
 const CrptoContext = ({ children }) => {
     const [currency, setCurrency] = useState('INR');
-    const [sybmol, setSybmol] = useState("₹");
+    const [symbol, setSymbol] = useState("₹");
     useEffect(() => {
-        if (currency === 'INR') setSybmol("₹");
-        else if (currency === 'USD')setSybmol("$");
+        if (currency === 'INR') setSymbol("₹");
+        else if (currency === 'USD')setSymbol("$");
     }, [currency])
   return (
     <>
-      <Crpto.Provider value={{ currency, sybmol,setCurrency}}>
+      <Crpto.Provider value={{ currency, symbol, setCurrency }}>
         {children}
       </Crpto.Provider>
     </>

@@ -20,6 +20,13 @@ function Banner() {
   return (
     <>
       <div className={classes.banner}>
+        {/* <video
+          src={`${img.bgVdo}`}
+          autoplay=""
+          muted=""
+          playsinline=""
+          loop=""
+        ></video> */}
         <Container className={classes.bannerContent}>
           <div className={classes.tagline}>
             <Typography
@@ -34,7 +41,8 @@ function Banner() {
             >
               Crypto Tracker
             </Typography>
-            <Typography variant="h6"
+            <Typography
+              variant="h6"
               style={{
                 color: "#fff",
                 flex: 1,
@@ -45,7 +53,7 @@ function Banner() {
               Get all the data from crypto currency app!
             </Typography>
           </div>
-          <Carousel/>
+          <Carousel />
         </Container>
       </div>
     </>

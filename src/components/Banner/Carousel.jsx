@@ -34,10 +34,11 @@ function Carousel() {
   
    
   useEffect(() => {
-        const fetchTrendingCoins = async () => {
-          const { data } = await axios.get(TrendingCoins(currency));
-          setTrending(data);
-        };
+        const fetchTrendingCoins = async () =>
+    {
+        const { data } = await axios.get(TrendingCoins(currency));
+        setTrending(data);
+    }
         fetchTrendingCoins();
     }, [currency]);
     const items = trending.map((coin) =>

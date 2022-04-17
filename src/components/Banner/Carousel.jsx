@@ -31,13 +31,13 @@ function Carousel() {
     const classes = useStyles();
     const { currency, symbol } = CrptoState();
     console.log(symbol);
-    const fetchTrendingCoins = async () =>
-    {
-        const { data } = await axios.get(TrendingCoins(currency));
-        setTrending(data);
-    }
+  
    
-    useEffect(() => {
+  useEffect(() => {
+        const fetchTrendingCoins = async () => {
+          const { data } = await axios.get(TrendingCoins(currency));
+          setTrending(data);
+        };
         fetchTrendingCoins();
     }, [currency]);
     const items = trending.map((coin) =>
@@ -70,7 +70,7 @@ function Carousel() {
         },
         512:
         {
-            items:6
+            items:4
         }
     }
   return (

@@ -144,7 +144,7 @@ function CoinTable() {
                   const profit = row.price_change_percentage_24h > 0;
                   return (
                     <TableRow
-                      onClick={() => navigate(`{/coins/${row.id}`)}
+                      onClick={() => navigate(`/coin/${row.id}`)}
                       className={classes.cointable}
                     >
                       <TableCell
@@ -196,7 +196,7 @@ function CoinTable() {
                           }}
                         >
                           {profit && "+"}{" "}
-                          {row?.price_change_percentage_24h?.toFixed(2)}
+                          {row?.price_change_percentage_24h?.toFixed(2)}%
                         </span>
                       </TableCell>
 

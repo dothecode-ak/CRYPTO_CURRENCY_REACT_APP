@@ -4,6 +4,7 @@ import { CoinList } from "../api/config";
 import { CrptoState } from "../cryptoContext/CrptoContext";
 import { useNavigate } from 'react-router-dom';
 import { numberWithCommas } from "./Banner/Carousel";
+import { Pagination } from "@material-ui/lab";
 import {
   createTheme,
   ThemeProvider,
@@ -19,6 +20,7 @@ import {
   TableBody,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+
 const useStyles = makeStyles(() => ({
   cointable: {
     color: "gold",
@@ -53,6 +55,11 @@ const useStyles = makeStyles(() => ({
       },
     },
   },
+  pagination: {
+    "& .MuiPaginationItem-root": {
+      color: 'gold'
+    }
+  }
 }));
 const darkTheam = createTheme({
   palette: {
@@ -70,6 +77,7 @@ function CoinTable() {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const { currency, symbol } = CrptoState();
+  const [page, setPage] = useState(1);
    const navigate = useNavigate();
   
   useEffect(() => {
@@ -130,7 +138,9 @@ function CoinTable() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {handleSerch().map((row) => {
+                  {handleSerch()
+                    .slice((page-1)*10,(page-1)*10+10)
+                    .map((row) => {
                   const profit = row.price_change_percentage_24h > 0;
                   return (
                     <TableRow
@@ -202,8 +212,18 @@ function CoinTable() {
                 })}
               </TableBody>
             </Table>
-          </TableContainer>
+            </TableContainer>
+         
+                
+            
         )}
+        <Pagination style={{ display: 'flex', justifyContent: 'center', padding: 20, width: '100%' }} classes={{ ul: classes.pagination }} count={(handleSerch()?.length / 10).toFixed(0)}
+          onChange={(_, value) =>
+          {
+            setPage(value);
+            window.scroll(0,450)
+        }}
+        />
       </Container>
     </ThemeProvider>
   );
